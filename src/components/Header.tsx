@@ -6,37 +6,6 @@ import { handleArrayActive } from "modules/arrayActive";
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const arrSkills = [
-    "HTML5",
-    "CSS3",
-    "SASS",
-    "React",
-    "JavaScript",
-    "jQuery",
-    "Gulp",
-    "Vue",
-    "웹접근성",
-    "웹표준",
-    "SEO",
-    "GSAP",
-    "Lottie",
-  ];
-  const arrEnvs = [
-    "GitLab",
-    "Jira",
-    "Confluence",
-    "SVN",
-    "CVS",
-    "FTP",
-    "Figma",
-    "Zeplin",
-    "Photoshop",
-    "Visual Studio Code",
-    "Eclipse",
-    "센스리더",
-    "Notion",
-  ];
-
   useEffect(() => {
     // 사용 기술 폰트 이벤트
     const skillList = document.querySelector(
@@ -51,8 +20,8 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <MyName>
-        <span>WEB UI Developer</span>
-        <strong className="my-name">Kim Soyoung 입니다.</strong>
+        <span>{mainTitle.label}</span>
+        <MyNameTitle>{mainTitle.title}</MyNameTitle>
       </MyName>
       <Contents>
         <dl>
@@ -91,6 +60,17 @@ const Header: React.FC = () => {
   );
 };
 
+const MyNameTitle = styled.strong`
+  opacity: 0.6;
+  font-size: 36px;
+  font-weight: bold;
+  color: rgba(var(--main_header), 0.6);
+  line-height: 1.3;
+
+  @media screen and (max-width: 640px) {
+    white-space: pre-line;
+  }
+`;
 const MyName = styled.h1`
   display: flex;
   flex-direction: column;
@@ -100,13 +80,6 @@ const MyName = styled.h1`
     font-weight: 600;
     color: rgba(var(--main_header), 0.8);
     line-height: 1.2;
-  }
-  & > .my-name {
-    opacity: 0.6;
-    font-size: 36px;
-    font-weight: bold;
-    color: rgba(var(--main_header), 0.6);
-    line-height: 1.3;
   }
 `;
 // const MenuButton = styled.button``;
@@ -155,5 +128,41 @@ const HeaderContainer = styled.header`
     padding: 0 20px;
   }
 `;
+
+// data
+const mainTitle = {
+  label: "PORTFOLIO",
+  title: "WEB UI Developer, \nKim So Young",
+};
+const arrSkills = [
+  "HTML5",
+  "CSS3",
+  "SASS",
+  "React",
+  "JavaScript",
+  "jQuery",
+  "Gulp",
+  "Vue",
+  "웹접근성",
+  "웹표준",
+  "SEO",
+  "GSAP",
+  "Lottie",
+];
+const arrEnvs = [
+  "GitLab",
+  "Jira",
+  "Confluence",
+  "SVN",
+  "CVS",
+  "FTP",
+  "Figma",
+  "Zeplin",
+  "Photoshop",
+  "Visual Studio Code",
+  "Eclipse",
+  "센스리더",
+  "Notion",
+];
 
 export default Header;
