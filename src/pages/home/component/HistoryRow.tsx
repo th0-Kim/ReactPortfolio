@@ -27,17 +27,18 @@ const HistoryRow: React.FC<Props> = ({
 }) => {
   return (
     <RowContainer className={className}>
-      <RowLeft>
-        <RowPeriod>{period}</RowPeriod>
-      </RowLeft>
-      <RowRight>
-        <RowName>
-          <strong>프로젝트명: </strong>
-          {company} {name}
-        </RowName>
-        <RowContent>
-          <li>
-            <strong>사용 기술: </strong>
+      <RowName>
+        <RowFlex>
+          <RowLeft>프로젝트명</RowLeft>
+          <RowRight>
+            {company} {name}
+          </RowRight>
+        </RowFlex>
+      </RowName>
+      <RowContentUl>
+        <RowFlexLi>
+          <RowLeft>사용 기술</RowLeft>
+          <RowRight>
             <SkillBox>
               {skills.map((skill, skillIndex) =>
                 skill.skillName.map((name, nameIndex) => (
@@ -50,20 +51,43 @@ const HistoryRow: React.FC<Props> = ({
                 ))
               )}
             </SkillBox>
-          </li>
-          <li>
-            <strong>참여도: </strong>
-            {rate}
-          </li>
-          <li>
-            <strong>유형: </strong>
-            {kind}
-          </li>
-        </RowContent>
-      </RowRight>
+          </RowRight>
+        </RowFlexLi>
+        <RowFlexLi>
+          <RowLeft>참여도</RowLeft>
+          <RowRight>{rate}</RowRight>
+        </RowFlexLi>
+        <RowFlexLi>
+          <RowLeft>유형</RowLeft>
+          <RowRight>{kind}</RowRight>
+        </RowFlexLi>
+        <RowFlexLi>
+          <RowLeft>기간</RowLeft>
+          <RowRight>{period}</RowRight>
+        </RowFlexLi>
+      </RowContentUl>
     </RowContainer>
   );
 };
+
+const RowLeft = styled.strong`
+  flex-shrink: 0;
+  flex: 1;
+  max-width: 80px;
+  margin-right: 10px;
+`;
+const RowRight = styled.div`
+  flex: 1;
+`;
+const RowFlex = styled.div`
+  display: flex;
+`;
+const RowFlexLi = styled.li`
+  display: flex;
+  ${RowLeft} {
+    color: var(--color_555555);
+  }
+`;
 
 const SkillBox = styled.div`
   display: inline-block;
@@ -80,40 +104,31 @@ const SkillBox = styled.div`
 `;
 const RowName = styled.strong`
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-weight: normal;
+  ${RowLeft} {
+    color: rgba(var(--color_list_dim), 0.7);
+  }
 `;
-const RowPeriod = styled.span`
-  margin-right: 10px;
-`;
-const RowContent = styled.ul`
+const RowContentUl = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  & > li {
-  }
-`;
-const RowLeft = styled.div`
-  @media screen and (min-width: 1024px) {
-    flex-shrink: 0;
-    width: 200px;
-  }
-`;
-const RowRight = styled.div`
-  @media screen and (min-width: 1024px) {
-    flex: 1;
-  }
+  gap: 8px;
 `;
 const RowContainer = styled.div`
   position: relative;
   opacity: 0;
   bottom: -20px;
-  padding: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.4;
   word-break: keep-all;
-  border-bottom: 1px solid var(--color_dddddd);
+  border: 1px solid var(--color_dddddd);
+  background-color: var(--color_white);
+  box-shadow: 0 4px 10px 0 var(--color_dddddd);
+  box-sizing: border-box;
   &:last-child {
     border-bottom: none;
   }
@@ -121,11 +136,6 @@ const RowContainer = styled.div`
   &.active {
     opacity: 1;
     bottom: 0;
-  }
-  @media screen and (min-width: 1024px) {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
   }
 `;
 

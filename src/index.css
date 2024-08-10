@@ -24,6 +24,7 @@
   --main_header: 0, 12, 150;
   --main_footer: 26, 45, 81;
   --main_top_title: rgba(0, 12, 150, 0.5);
+  --skill_tree_bg: 177, 177, 177;
 }
 
 ::selection {

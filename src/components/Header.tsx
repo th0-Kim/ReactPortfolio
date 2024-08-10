@@ -23,24 +23,24 @@ const Header: React.FC = () => {
         <span>{mainTitle.label}</span>
         <MyNameTitle>{mainTitle.title}</MyNameTitle>
       </MyName>
-      <Contents>
-        <dl>
+      <MySkillTree>
+        <SkillDl>
           <dt>사용 기술</dt>
           <dd className="skill-list">
             {arrSkills.map((skil, index) => (
               <span key={index.toString()}>{skil}</span>
             ))}
           </dd>
-        </dl>
-        <dl>
+        </SkillDl>
+        <SkillDl>
           <dt>업무 환경</dt>
           <dd className="env-list">
             {arrEnvs.map((env, index) => (
               <span key={index.toString()}>{env}</span>
             ))}
           </dd>
-        </dl>
-      </Contents>
+        </SkillDl>
+      </MySkillTree>
 
       {/* <Menu>
         <MenuButton
@@ -74,7 +74,7 @@ const MyNameTitle = styled.strong`
 const MyName = styled.h1`
   display: flex;
   flex-direction: column;
-  padding: 50px 0;
+  padding-top: 50px;
   & > span {
     font-size: 22px;
     font-weight: 600;
@@ -85,41 +85,44 @@ const MyName = styled.h1`
 // const MenuButton = styled.button``;
 // const MenuList = styled.ul``;
 // const Menu = styled.nav``;
-const Contents = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 1380px;
-  padding: 0 16px;
-  margin: 30px auto 0;
-  gap: 20px;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.4;
-  dl {
-    font-size: 16px;
-    dt {
-      font-weight: bold;
-      color: var(--color_555555);
-    }
-    dd {
-      color: var(--color_333333);
-      & > span {
-        opacity: 0.3;
+const SkillDl = styled.dl`
+  font-size: 16px;
+  dt {
+    font-weight: bold;
+    color: var(--color_555555);
+  }
+  dd {
+    color: var(--color_333333);
+    & > span {
+      opacity: 0.3;
+      &:after {
+        content: ", ";
+      }
+      &:last-child {
         &:after {
-          content: ", ";
+          display: none;
         }
-        &:last-child {
-          &:after {
-            display: none;
-          }
-        }
-        transition: opacity 0.5s;
-        &.active {
-          opacity: 1;
-        }
+      }
+      transition: opacity 0.5s;
+      &.active {
+        opacity: 1;
       }
     }
   }
+`;
+const MySkillTree = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1380px;
+  padding: 0 16px;
+  margin: 50px auto 0;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(var(--skill_tree_bg), 0.1);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.4;
 `;
 const HeaderContainer = styled.header`
   max-width: 1380px;
