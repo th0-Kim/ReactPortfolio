@@ -10,11 +10,11 @@ const Header: React.FC = () => {
     "HTML5",
     "CSS3",
     "SASS",
+    "React",
     "JavaScript",
     "jQuery",
-    "React",
-    "Vue",
     "Gulp",
+    "Vue",
     "웹접근성",
     "웹표준",
     "SEO",
@@ -50,7 +50,10 @@ const Header: React.FC = () => {
   }, []);
   return (
     <HeaderContainer>
-      <MyName>WEB UI Developer Kim Soyoung : )</MyName>
+      <MyName>
+        <span>WEB UI Developer</span>
+        <strong className="my-name">Kim Soyoung 입니다.</strong>
+      </MyName>
       <Contents>
         <dl>
           <dt>사용 기술</dt>
@@ -89,11 +92,22 @@ const Header: React.FC = () => {
 };
 
 const MyName = styled.h1`
+  display: flex;
+  flex-direction: column;
   padding: 50px 0;
-  font-size: 30px;
-  font-weight: bold;
-  color: var(--main_header);
-  line-height: 1.3;
+  & > span {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(var(--main_header), 0.8);
+    line-height: 1.2;
+  }
+  & > .my-name {
+    opacity: 0.6;
+    font-size: 36px;
+    font-weight: bold;
+    color: rgba(var(--main_header), 0.6);
+    line-height: 1.3;
+  }
 `;
 // const MenuButton = styled.button``;
 // const MenuList = styled.ul``;

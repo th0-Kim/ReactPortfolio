@@ -21,7 +21,7 @@
   --color_list_dim: 6, 84, 152;
   --color_shadow: 31, 38, 135;
   --object_selected: rgba(196, 225, 250, 0.7);
-  --main_header: rgba(0, 12, 150, 0.8);
+  --main_header: 0, 12, 150;
   --main_footer: 26, 45, 81;
   --main_top_title: rgba(0, 12, 150, 0.5);
 }

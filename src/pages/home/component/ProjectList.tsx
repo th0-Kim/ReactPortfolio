@@ -29,9 +29,11 @@ const ProjectListInner = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   padding: 40px 20px;
-  background-color: rgba(var(--color_list_dim), 0.5);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-  transition: all 1s;
+  transition: all 0.5s;
+  &.active {
+    background-color: rgba(var(--color_list_dim), 0.5);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  }
   @media screen and (min-width: 1400px) {
     border-radius: 12px;
   }
@@ -62,8 +64,17 @@ const projectMap: JSX.Element[] = projectData
 
 const ProjectList: React.FC = () => {
   const listRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (innerRef.current) {
+      handleScrollActive(innerRef.current, () =>
+        setTimeout(() => {
+          innerRef.current?.classList.add("active");
+        }, 0)
+      );
+    }
+
     const moCardEvent = () => {
       const cards = document.querySelectorAll(
         ".project-card"
@@ -103,7 +114,7 @@ const ProjectList: React.FC = () => {
   return (
     <ProjectListContainer ref={listRef}>
       <SectionTitle className={``.trim()} title="대표 프로젝트" />
-      <ProjectListInner ref={}>{projectMap}</ProjectListInner>
+      <ProjectListInner ref={innerRef}>{projectMap}</ProjectListInner>
     </ProjectListContainer>
   );
 };
