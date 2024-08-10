@@ -5,7 +5,7 @@ import Home from "pages/home/screen/Home";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

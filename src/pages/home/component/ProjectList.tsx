@@ -103,7 +103,7 @@ const ProjectList: React.FC = () => {
   return (
     <ProjectListContainer ref={listRef}>
       <SectionTitle className={``.trim()} title="대표 프로젝트" />
-      <ProjectListInner>{projectMap}</ProjectListInner>
+      <ProjectListInner ref={}>{projectMap}</ProjectListInner>
     </ProjectListContainer>
   );
 };
