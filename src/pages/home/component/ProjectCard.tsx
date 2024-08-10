@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
 //images
@@ -37,32 +37,8 @@ const ProjectCard: React.FC<Props> = ({
   const [isOpen, setIsOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
-
   return (
-    <CardContainer
-      className={className}
-      onClick={() => {
-        setIsOpen((prev) => !prev);
-      }}
-      ref={cardRef}
-    >
+    <CardContainer className={className} ref={cardRef}>
       <CardThumb>
         <span className="label-company">{company}</span>
         <img src={imgSrc} alt={`${name} 프로젝트`} />
@@ -84,6 +60,15 @@ const ProjectCard: React.FC<Props> = ({
           </ProjectLabelBox>
         </CardHead>
       </CardContents>
+      <ButtonOpenLayer
+        type="button"
+        $isOpen={isOpen}
+        onClick={() => {
+          setIsOpen((prev) => !prev);
+        }}
+      >
+        <span>{isOpen ? "Close" : "Click!!"}</span>
+      </ButtonOpenLayer>
       <CardLayerDim $isOpen={isOpen} aria-hidden={isOpen ? false : true}>
         <div>
           <ProjectIntroduce>프로젝트 소개</ProjectIntroduce>
@@ -107,6 +92,34 @@ const ProjectCard: React.FC<Props> = ({
   );
 };
 
+const ButtonOpenLayer = styled.button<{ $isOpen: boolean }>`
+  position: absolute;
+  z-index: 3;
+  right: -40px;
+  bottom: -40px;
+  width: 70px;
+  height: 70px;
+  border-radius: 80px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
+  & > span {
+    opacity: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(0, 149, 255, 0.9);
+  }
+  ${({ $isOpen }) =>
+    $isOpen &&
+    `
+      right: -10px;
+      bottom: -10px;
+      & > span {
+        opacity: 1;
+      }
+
+  `}
+`;
 const Link = styled.a`
   position: relative;
   display: inline-flex;
@@ -345,19 +358,48 @@ const CardContainer = styled.div`
   backdrop-filter: blur(4.5px);
   box-shadow: 0 8px 32px 0 rgba(var(--color_shadow), 0.37);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  cursor: pointer;
   transition: background 0.5s ease, right 0.5s ease, bottom 0.5s ease;
   &.active {
     opacity: 1;
     right: 0;
   }
-  &:hover ::-webkit-scrollbar {
-    width: 7px;
-    transition: width 0.5s;
+  &:hover {
+    ${ButtonOpenLayer} {
+      right: -10px;
+      bottom: -10px;
+      background: rgba(var(--skill_tree_bg), 0.8);
+      transform-origin: bottom right;
+      animation: swing 2s ease infinite;
+      & > span {
+        opacity: 1;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 7px;
+      transition: width 0.5s;
+    }
   }
   @media screen and (min-width: 1280px) {
     &:hover {
       background: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  @keyframes swing {
+    20% {
+      transform: rotate(15deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    60% {
+      transform: rotate(5deg);
+    }
+    80% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
     }
   }
 `;
