@@ -79,12 +79,16 @@ const ProjectCard: React.FC<Props> = ({
                 <li key={index.toString()}>{cont.list}</li>
               ))}
           </ProjectContribution>
-          {url && url !== null ? (
-            <Link href={url} target="_blank">
-              <span>이동하기</span>
-            </Link>
-          ) : (
-            <NoneLink>이동불가</NoneLink>
+          {isOpen && (
+            <>
+              {url && url !== null ? (
+                <Link href={url} target="_blank">
+                  <span>이동하기</span>
+                </Link>
+              ) : (
+                <NoneLink>이동불가</NoneLink>
+              )}
+            </>
           )}
         </div>
       </CardLayerDim>
@@ -95,13 +99,14 @@ const ProjectCard: React.FC<Props> = ({
 const ButtonOpenLayer = styled.button<{ $isOpen: boolean }>`
   position: absolute;
   z-index: 3;
-  right: -40px;
-  bottom: -40px;
+  right: 0;
+  bottom: 0;
   width: 70px;
   height: 70px;
   border-radius: 80px;
   background: rgba(255, 255, 255, 0.6);
   transition: all 0.5s;
+  transform: translate(40px, 40px);
   & > span {
     opacity: 0;
     font-size: 15px;
@@ -112,13 +117,20 @@ const ButtonOpenLayer = styled.button<{ $isOpen: boolean }>`
   ${({ $isOpen }) =>
     $isOpen &&
     `
-      right: -10px;
-      bottom: -10px;
+      transform: translate(20px, 20px);
       & > span {
         opacity: 1;
       }
-
   `}
+  &:focus-visible {
+    transform: translate(20px, 20px);
+    background: rgba(229, 206, 175, 0.6);
+    transform-origin: bottom right;
+    animation: swing 2s ease infinite;
+    & > span {
+      opacity: 1;
+    }
+  }
 `;
 const Link = styled.a`
   position: relative;
@@ -365,8 +377,7 @@ const CardContainer = styled.div`
   }
   &:hover {
     ${ButtonOpenLayer} {
-      right: -10px;
-      bottom: -10px;
+      transform: translate(20px, 20px);
       background: rgba(229, 206, 175, 0.6);
       transform-origin: bottom right;
       animation: swing 2s ease infinite;

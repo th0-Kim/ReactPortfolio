@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <div>PORTFOLIO · WEB UI Developer</div>
-      <div>2024 · Made by React</div>
+      <div>2024 · Made by React &amp; TypeScript</div>
       <ButtonTop
         type="button"
         onClick={() => {
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 
 const ButtonTop = styled.button`
   opacity: 0.6;
-  margin-top: 15px;
+  margin-top: 20px;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 700;
