@@ -11,7 +11,7 @@ const Main = styled.main`
   flex-direction: column;
   max-width: 1380px;
   gap: 100px;
-  margin: 100px auto;
+  margin: 100px auto 160px;
 `;
 const HomeContainer = styled.div``;
 

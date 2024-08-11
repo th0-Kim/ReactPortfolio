@@ -30,7 +30,13 @@ const ButtonTop = styled.button`
   }
 `;
 const FooterContainer = styled.footer`
-  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  height: 43vh;
+  height: 43dvh;
   background-color: rgba(var(--main_footer), 0.8);
   font-size: 16px;
   font-weight: normal;

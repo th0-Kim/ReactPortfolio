@@ -1,4 +1,48 @@
 export let projectData = [
+  // //
+  // {
+  //   highlight: false,
+  //   year: "2024",
+  //   period: "작업 기간",
+  //   image: "publImg.jpg",
+  //   company: "LG전자",
+  //   name: "프로젝트 이름",
+  //   skills: [
+  //     {
+  //       color: "type_lang",
+  //       skillName: ["React", "Vue", "Javascript", "HTML", "jQuery", "Gulp"],
+  //     },
+  //     {
+  //       color: "type_style",
+  //       skillName: ["SCSS", "CSS", "Material-UI"],
+  //     },
+  //     {
+  //       color: "type_tool",
+  //       skillName: ["VSCODE", "JIRA", "Eclipse", "eXbulider6"],
+  //     },
+  //     {
+  //       color: "label_gui",
+  //       skillName: ["Figma", "Photoshop", "Zeplin"],
+  //     },
+  //     {
+  //       color: "type_vcs",
+  //       skillName: ["GitLab", "CVS", "SVN"],
+  //     },
+  //     {
+  //       color: "type_a11y",
+  //       skillName: ["웹접근성"],
+  //     },
+  //   ],
+  //   kind: "반응형 웹",
+  //   rate: "100%/1인 투입",
+  //   subscript: "",
+  //   contribution: [
+  //     {
+  //       list: "",
+  //     },
+  //   ],
+  //   url: null,
+  // },
   // LG 전자 마이크로사이트
   {
     highlight: false,
@@ -686,7 +730,7 @@ export let projectData = [
   // SKC&C JD 플랫폼 구축
   {
     highlight: false,
-    year: "2024",
+    year: "2020",
     period: "2020.11.26 ~ 2021.01.15",
     image: "publImg.jpg",
     company: "SKC&C",
@@ -919,92 +963,520 @@ export let projectData = [
     ],
     url: null,
   },
-  // //
-  // {
-  //   highlight: false,
-  //   year: "2019",
-  //   period: "2019.11 ~ 2019.12",
-  //   image: "publImg.jpg",
-  //   company: "삼성SDS",
-  //   name: "인력개발원 교육지원시스템",
-  //   skills: [
-  //     {
-  //       color: "type_lang",
-  //       skillName: ["React", "Vue", "Javascript", "HTML", "jQuery", "Gulp"],
-  //     },
-  //     {
-  //       color: "type_style",
-  //       skillName: ["SCSS", "CSS", "Material-UI"],
-  //     },
-  //     {
-  //       color: "type_tool",
-  //       skillName: ["VSCODE", "JIRA", "Eclipse", "eXbulider6"],
-  //     },
-  //     {
-  //       color: "label_gui",
-  //       skillName: ["Figma", "Photoshop", "Zeplin"],
-  //     },
-  //     {
-  //       color: "type_vcs",
-  //       skillName: ["GitLab", "CVS", "SVN"],
-  //     },
-  //     {
-  //       color: "type_a11y",
-  //       skillName: ["웹접근성"],
-  //     },
-  //   ],
-  //   kind: "반응형 웹",
-  //   rate: "100%/1인 투입",
-  //   subscript: "",
-  //   contribution: [
-  //     {
-  //       list: "",
-  //     },
-  //   ],
-  //   url: null,
-  // },
-  // //
-  // {
-  //   highlight: false,
-  //   year: "2024",
-  //   period: "작업 기간",
-  //   image: "publImg.jpg",
-  //   company: "LG전자",
-  //   name: "프로젝트 이름",
-  //   skills: [
-  //     {
-  //       color: "type_lang",
-  //       skillName: ["React", "Vue", "Javascript", "HTML", "jQuery", "Gulp"],
-  //     },
-  //     {
-  //       color: "type_style",
-  //       skillName: ["SCSS", "CSS", "Material-UI"],
-  //     },
-  //     {
-  //       color: "type_tool",
-  //       skillName: ["VSCODE", "JIRA", "Eclipse", "eXbulider6"],
-  //     },
-  //     {
-  //       color: "label_gui",
-  //       skillName: ["Figma", "Photoshop", "Zeplin"],
-  //     },
-  //     {
-  //       color: "type_vcs",
-  //       skillName: ["GitLab", "CVS", "SVN"],
-  //     },
-  //     {
-  //       color: "type_a11y",
-  //       skillName: ["웹접근성"],
-  //     },
-  //   ],
-  //   kind: "반응형 웹",
-  //   rate: "100%/1인 투입",
-  //   subscript: "",
-  //   contribution: [
-  //     {
-  //       list: "",
-  //     },
-  //   ],
-  //   url: null,
-  // },
+  // 삼성SDS 인력개발원 교육지원시스템
+  {
+    highlight: false,
+    year: "2019",
+    period: "2019.11 ~ 2019.12",
+    image: "publImg.jpg",
+    company: "삼성SDS",
+    name: "인력개발원 교육지원시스템",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["VSCODE"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Figma", "Photoshop", "Zeplin"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["GitLab"],
+      },
+    ],
+    kind: "PC 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 신한은행 혁신성장 창업플랫폼 INNOTALK
+  {
+    highlight: false,
+    year: "2019",
+    period: "2019.07 ~ 2019.10",
+    image: "publImg.jpg",
+    company: "신한은행",
+    name: "혁신성장 창업플랫폼 INNOTALK",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["SCSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["VSCODE"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "적응형 PC/모바일 웹",
+    rate: "60%(2인투입)",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 기업은행 IBX Box platform(Admin)
+  {
+    highlight: false,
+    year: "2019",
+    period: "2019.01 ~ 2019.05",
+    image: "publImg.jpg",
+    company: "기업은행",
+    name: "IBX Box platform - Admin",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["eXbulider6"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "PC웹",
+    rate: "70%/2인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 한화생명 온슈어 채널활성화(상품)
+  {
+    highlight: false,
+    year: "2018",
+    period: "2018.12",
+    image: "publImg.jpg",
+    company: "한화생명",
+    name: "온슈어 채널활성화(상품)",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["Editplus"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "적응형 PC/모바일 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 삼성SDS edutto 개선
+  {
+    highlight: false,
+    year: "2018",
+    period: "2018.09 ~ 2018.11",
+    image: "publImg.jpg",
+    company: "삼성SDS",
+    name: "edutto 개선",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["VSCODE"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 삼성물산 홈페이지 리뉴얼
+  {
+    highlight: false,
+    year: "2018",
+    period: "2018.06 ~ 2018.08",
+    image: "publImg.jpg",
+    company: "삼성물산",
+    name: "홈페이지 리뉴얼",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["VSCODE"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["GitLab"],
+      },
+    ],
+    kind: "적응형 PC/모바일 웹",
+    rate: "30%/3인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // Wiseuser 메인 개편
+  {
+    highlight: false,
+    year: "2018",
+    period: "2018.04 ~ 2018.05",
+    image: "publImg.jpg",
+    company: "Wiseuser",
+    name: "메인 개편",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["Eclipse"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+      {
+        color: "type_a11y",
+        skillName: ["웹접근성"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // KAIT자격검정 홈페이지 리뉴얼
+  {
+    highlight: false,
+    year: "2018",
+    period: "2018.01 ~ 2018.04",
+    image: "publImg.jpg",
+    company: "KAIT 자격검정",
+    name: "홈페이지 리뉴얼",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["Eclipse"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 중앙자살예방센터 통계 분석 시스템
+  {
+    highlight: false,
+    year: "2018",
+    period: "2017.11 ~ 2018.04",
+    image: "publImg.jpg",
+    company: "중앙자살예방센터",
+    name: "통계 분석 시스템",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["Eclipse"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 할렐루야교회
+  {
+    highlight: false,
+    year: "2017",
+    period: "2017.09 ~ 2018.01",
+    image: "publImg.jpg",
+    company: "할렐루야교회",
+    name: "홈페이지 리뉴얼",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["Eclipse"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // CAFE24
+  {
+    highlight: false,
+    year: "2017",
+    period: "2017.07 ~ 2017.08",
+    image: "publImg.jpg",
+    company: "CAFE24 - 6종",
+    name: "템플릿 제작",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["CAFE24"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // 스타트업 홈페이지 제작 사업
+  {
+    highlight: false,
+    year: "2017",
+    period: "2017.04 ~ 2017.06",
+    image: "publImg.jpg",
+    company: "OCEAN C&C, EAST CONTROL, MTEC Grobal",
+    name: "스타트업 홈페이지 지원 사업",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["Eclipse"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "100%/1인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
+  // Krace 경륜·경정
+  {
+    highlight: false,
+    year: "2017",
+    period: "2017.01 ~ 2017.04",
+    image: "publImg.jpg",
+    company: "Krace 경륜·경정",
+    name: "홈페이지 리뉴얼",
+    skills: [
+      {
+        color: "type_lang",
+        skillName: ["HTML", "jQuery"],
+      },
+      {
+        color: "type_style",
+        skillName: ["CSS"],
+      },
+      {
+        color: "type_tool",
+        skillName: ["Eclipse"],
+      },
+      {
+        color: "label_gui",
+        skillName: ["Photoshop"],
+      },
+      {
+        color: "type_vcs",
+        skillName: ["SVN"],
+      },
+    ],
+    kind: "반응형 웹",
+    rate: "70%/2인 투입",
+    subscript: "",
+    contribution: [
+      {
+        list: "",
+      },
+    ],
+    url: null,
+  },
 ];

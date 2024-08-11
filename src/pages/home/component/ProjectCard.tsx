@@ -367,7 +367,7 @@ const CardContainer = styled.div`
     ${ButtonOpenLayer} {
       right: -10px;
       bottom: -10px;
-      background: rgba(var(--skill_tree_bg), 0.8);
+      background: rgba(229, 206, 175, 0.6);
       transform-origin: bottom right;
       animation: swing 2s ease infinite;
       & > span {
