@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
 //component
@@ -22,28 +22,6 @@ const Card = styled(ProjectCard)`
     width: 100%;
   }
 `;
-const ProjectListInner = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px 20px;
-  transition: all 0.5s;
-  &.active {
-    background-color: rgba(var(--color_list_dim), 0.5);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-  }
-  @media screen and (min-width: 1400px) {
-    border-radius: 12px;
-  }
-  @media screen and (min-width: 1024px) {
-    gap: 40px;
-  }
-`;
-
-const ProjectListContainer = styled.div``;
-
 const projectMap: JSX.Element[] = projectData
   .map((item, index) =>
     item.highlight ? (
@@ -63,16 +41,17 @@ const projectMap: JSX.Element[] = projectData
   .filter((element): element is JSX.Element => element !== undefined);
 
 const ProjectList: React.FC = () => {
+  const [listShow, setListShow] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
+  const beforeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (innerRef.current) {
-      handleScrollActive(innerRef.current, () =>
-        setTimeout(() => {
-          innerRef.current?.classList.add("active");
-        }, 0)
-      );
+    if (listRef.current && innerRef.current) {
+      handleScrollActive(listRef.current, () => {
+        setListShow(true);
+        innerRef.current?.classList.add("active");
+      });
     }
 
     const moCardEvent = () => {
@@ -114,9 +93,48 @@ const ProjectList: React.FC = () => {
   return (
     <ProjectListContainer ref={listRef}>
       <SectionTitle className={``.trim()} title="대표 프로젝트" />
+      {!listShow && <BeforeScroll ref={beforeRef}></BeforeScroll>}
       <ProjectListInner ref={innerRef}>{projectMap}</ProjectListInner>
     </ProjectListContainer>
   );
 };
+
+const ProjectListInner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 20px;
+  transition: all 0.5s;
+  &.active {
+    background-color: rgba(var(--color_list_dim), 0.5);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  }
+  @media screen and (min-width: 1400px) {
+    border-radius: 12px;
+  }
+  @media screen and (min-width: 1024px) {
+    gap: 40px;
+  }
+`;
+
+const ProjectListContainer = styled.div``;
+
+const BeforeScroll = styled.div`
+  height: 800px;
+  background: linear-gradient(
+    0.25turn,
+    rgba(var(--skill_tree_bg), 0.2),
+    rgba(var(--skill_tree_bg), 0.15),
+    rgba(var(--skill_tree_bg), 0.2),
+    rgba(var(--skill_tree_bg), 0.1)
+  );
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 1400px) {
+    border-radius: 12px;
+  }
+`;
 
 export default ProjectList;

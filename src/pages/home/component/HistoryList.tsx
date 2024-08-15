@@ -22,33 +22,20 @@ const ProjectList: React.FC = () => {
   const tabInnerScroll = (items: HTMLElement | null) => {
     if (items) {
       const rows = Array.from(items.children) as HTMLElement[];
-
       rows.forEach((row, idx) => {
-        // reset active class
-        row.classList.remove("active");
-
         // set active class
-        const delay = 500;
+        const delay = 200;
         setTimeout(() => {
           handleScrollActive(row, () => {
             row.classList.add("active");
           });
         }, delay);
-
-        // row click after scroll event
-        const handleClick = () => {
-          if (listRef.current) {
-            tabInnerScroll(listRef.current);
-          }
-        };
-        if (listRef.current) {
-          row.addEventListener("click", handleClick);
-          return () => {
-            row.removeEventListener("click", handleClick);
-          };
-        }
       });
     }
+  };
+  // tab after list show
+  const handleTabList = () => {
+    listRef.current?.classList.add("all-active");
   };
 
   useEffect(() => {
@@ -59,25 +46,6 @@ const ProjectList: React.FC = () => {
       // load fade Effect
       handleScrollActive(tabRef.current, () => {
         tabRef.current!.style.opacity = "1";
-      });
-      // tab button click event
-      const rows = Array.from(tabRef.current.children) as HTMLElement[];
-      const tabButtonClick = (row: HTMLElement, rows: HTMLElement[]) => {
-        rows.forEach((r) => r.classList.remove("on"));
-        row.classList.add("on");
-        // tab button click after fade Effect
-        setTimeout(() => {
-          tabInnerScroll(listRef.current);
-        }, 0);
-      };
-
-      // tab button click event
-      rows.forEach((row, idx) => {
-        const handleClick = () => tabButtonClick(row, rows);
-        row.addEventListener("click", handleClick);
-        return () => {
-          row.removeEventListener("click", handleClick);
-        };
       });
     }
   }, [tabRef.current, listRef.current]);
@@ -91,6 +59,7 @@ const ProjectList: React.FC = () => {
           tabTitle="전체"
           clickEvent={() => {
             handleTabClick("all");
+            handleTabList();
           }}
         />
         {tabButtons.map((tab, idx) => (
@@ -100,6 +69,7 @@ const ProjectList: React.FC = () => {
             tabTitle={tab.year.toString()}
             clickEvent={() => {
               handleTabClick(tab.year.toString());
+              handleTabList();
             }}
           />
         ))}
@@ -173,6 +143,12 @@ const List = styled.div`
   ${Row} {
     width: 100%;
   }
+  &.all-active {
+    ${Row} {
+      opacity: 1;
+      bottom: 0;
+    }
+  }
   @media screen and (max-width: 1400px) {
     padding: 0 20px;
   }
@@ -182,7 +158,9 @@ const List = styled.div`
     }
   }
 `;
-const ProjectListContainer = styled.div``;
+const ProjectListContainer = styled.div`
+  min-height: 800px;
+`;
 
 const tabButtons = [
   { year: 2024 },
